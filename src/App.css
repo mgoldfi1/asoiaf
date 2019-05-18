@@ -3,18 +3,50 @@
 .container {
   height: 100vh;
   width: 100vw;
+  overflow: auto;
   display: flex;
   flex-direction: row;
 }
 
 .sidebar {
   width: 350px;
-  height: 100%;
-  background-color: #5dbde2;
+  height: 100vh;
+  background-color: #7492f7;
   box-shadow: 1px 0px 4px #888888;
 }
 
 .home-container {
   height: 100%;
   width: 100%;
+}
+
+.image-container {
+  height: 30%;
+}
+
+.navigation-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.nav-item {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  background-color: #d0d5dd34;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  justify-content: space-around;
+}
+
+.nav-item div {
+  align-self: center;
+}
+.nav-item:hover {
+  background-color: white;
+  color: blue;
 }
