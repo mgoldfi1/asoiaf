@@ -10,7 +10,8 @@
 .sidebar {
   width: 350px;
   height: 100%;
-  background-color: #5b281b;
+  background-color: #5dbde2;
+  box-shadow: 1px 0px 4px #888888;
 }
 
 .home-container {
