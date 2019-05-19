@@ -47,6 +47,6 @@
   align-self: center;
 }
 .nav-item:hover {
-  background-color: white;
+  background-color: rgb(154, 207, 243);
   color: blue;
 }

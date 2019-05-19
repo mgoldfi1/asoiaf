@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import banner from "../assets/images/banner.png";
 import { connect } from "react-redux";
 import { selectTab } from "../actions/index";
