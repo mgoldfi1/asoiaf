@@ -1,14 +1,27 @@
 import React from "react";
 import banner from "../../assets/images/banner.png";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import Books from "../Books";
-const AppContainer = () => {
+import { connect } from "react-redux";
+const AppContainer = props => {
   return (
     <Router>
       <div className="home-container" />;
-      <Route path="/books" component={Books} />
     </Router>
   );
 };
 
-export default AppContainer;
+const mapStateToProps = state => ({
+  loading: state.books.loading,
+  books: state.books.books
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(AppContainer);

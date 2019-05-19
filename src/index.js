@@ -4,24 +4,29 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-//saga middleware
-import createSagaMiddleware from "redux-saga";
-import rootSaga from "./sagas/index";
-import thunk from "redux-thunk";
-
 //redux
 import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { persistStore, persistReducer } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+import storage from "redux-persist/lib/storage";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
 
-// const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const persistConfig = {
+  key: "root",
+  storage
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// sagaMiddleware.run(rootSaga);
+const store = createStore(persistedReducer, applyMiddleware(thunk));
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App id="App" />
+    <PersistGate loading={null} persistor={persistor}>
+      <App id="App" />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

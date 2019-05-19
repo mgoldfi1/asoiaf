@@ -1,3 +1,5 @@
+import { ninvoke } from "q";
+
 export const selectTab = tab => {
   console.log(tab);
   return dispatch => {
@@ -16,5 +18,12 @@ export const setLoading = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const sortBooks = sort => {
+  const query = sort === "release" ? "released" : "numberOfPages";
+  return dispatch => {
+    dispatch({ type: "SORT_BOOKS", sort: query });
   };
 };
