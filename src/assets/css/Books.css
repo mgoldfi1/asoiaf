@@ -16,3 +16,18 @@
   top: 50vh;
   left: 60vw;
 }
+
+.book-details-container {
+  width: 100%;
+}
+
+.inner-book-container {
+  margin: 25%;
+  box-shadow: 1px 0px 4px #888888;
+  overflow: auto;
+}
+
+.book-text-holder p {
+  margin-left: 8px;
+  margin-bottom: 8px;
+}

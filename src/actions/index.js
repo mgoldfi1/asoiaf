@@ -21,9 +21,10 @@ export const setLoading = () => {
   };
 };
 
-export const sortBooks = sort => {
+export const sortBooks = (sort, dir) => {
   const query = sort === "release" ? "released" : "numberOfPages";
+  console.log(dir);
   return dispatch => {
-    dispatch({ type: "SORT_BOOKS", sort: query });
+    dispatch({ type: "SORT_BOOKS", sort: query, dir: dir });
   };
 };

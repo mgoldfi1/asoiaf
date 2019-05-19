@@ -9,6 +9,8 @@ import { RingLoader } from "react-spinners";
 import Book from "./Book";
 //Button
 import Button from "@material-ui/core/Button";
+import arrowup from "../assets/images/arrow-up.svg";
+import arrowdown from "../assets/images/arrow-down.svg";
 
 const Books = props => {
   const [books, setBooks] = useState(props.books);
@@ -30,8 +32,8 @@ const Books = props => {
     });
   };
 
-  const handlePress = sort => {
-    props.sortBooks(sort);
+  const handlePress = (sort, dir) => {
+    props.sortBooks(sort, dir);
   };
   return (
     <div style={{ overflow: "auto" }}>
@@ -53,20 +55,32 @@ const Books = props => {
             }}
           >
             Sort By:{" "}
-            <Button
-              onClick={() => handlePress("release")}
-              style={{ marginLeft: "50px" }}
-              variant="contained"
-            >
+            <Button style={{ marginLeft: "50px" }} variant="contained">
               Release
             </Button>
-            <Button
-              onClick={() => handlePress("pagecount")}
-              style={{ marginLeft: "30px" }}
-              variant="contained"
-            >
+            <img
+              onClick={() => handlePress("release", "up")}
+              src={arrowup}
+              title="uparrow"
+            />
+            <img
+              src={arrowdown}
+              title="downarrow"
+              onClick={() => handlePress("release", "down")}
+            />
+            <Button style={{ marginLeft: "30px" }} variant="contained">
               Page Count
             </Button>
+            <img
+              onClick={() => handlePress("pagecount", "up")}
+              src={arrowup}
+              title="uparrow"
+            />
+            <img
+              src={arrowdown}
+              title="downarrow"
+              onClick={() => handlePress("pagecount", "down")}
+            />
           </div>
           <div className="book-container">{renderBooks()}</div>
         </>

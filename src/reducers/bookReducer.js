@@ -1,5 +1,8 @@
-import { comparePages } from "../utils/index";
-import { compareYears } from "../utils/index";
+import { comparePagesAsc } from "../utils/index";
+import { comparePagesDesc } from "../utils/index";
+import { compareYearsAsc } from "../utils/index";
+import { compareYearsDesc } from "../utils/index";
+
 const bookReducer = (state = { books: [], loading: false }, action) => {
   switch (action.type) {
     case "FETCHING_BOOKS":
@@ -12,11 +15,19 @@ const bookReducer = (state = { books: [], loading: false }, action) => {
       let sortedState;
       if (action.sort === "released") {
         let books = [...state.books];
-        sortedState = books.sort(compareYears);
+        if (action.dir === "up") {
+          sortedState = books.sort(compareYearsAsc);
+        } else {
+          sortedState = books.sort(compareYearsDesc);
+        }
         console.log(state);
       } else {
         let books = [...state.books];
-        sortedState = books.sort(comparePages);
+        if (action.dir === "up") {
+          sortedState = books.sort(comparePagesAsc);
+        } else {
+          sortedState = books.sort(comparePagesDesc);
+        }
         console.log("SORTED", sortedState);
       }
       return { ...state, books: sortedState };
