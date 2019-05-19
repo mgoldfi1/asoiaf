@@ -2,21 +2,17 @@ import React, { useEffect, useState } from "react";
 import banner from "../assets/images/banner.png";
 import { connect } from "react-redux";
 import { selectTab } from "../actions/index";
-
+import { Link } from "react-router-dom";
 const Sidebar = props => {
   const styles = {
     backgroundColor: "white",
     color: "blue"
   };
 
-  //   const tabHighlight = () => {
-  //         return s
-  //     }
-  //   };
-
   useEffect(() => {
-    props.selectTab("Books");
+    props.selectTab(props.currentTab);
   }, []);
+
   return (
     <div className="sidebar">
       <div className="image-container">
@@ -27,13 +23,21 @@ const Sidebar = props => {
         />
       </div>
       <div className="navigation-holder">
-        <div
+        <Link
           onClick={() => props.selectTab("Books")}
           className="nav-item"
-          style={props.currentTab === "Books" ? styles : null}
+          style={
+            props.currentTab === "Books"
+              ? { ...styles, textDecoration: "none" }
+              : { textDecoration: "none" }
+          }
+          to="/books"
         >
-          <div>Books</div>
-        </div>
+          <div>
+            <div>Books</div>
+          </div>
+        </Link>
+
         <div
           onClick={() => props.selectTab("Characters")}
           className="nav-item"
@@ -56,10 +60,6 @@ const Sidebar = props => {
 const mapStatetoProps = state => ({
   currentTab: state.nav.currentTab
 });
-
-const mapDispatchToProps = {
-  selectTab: selectTab
-};
 
 export default connect(
   mapStatetoProps,
