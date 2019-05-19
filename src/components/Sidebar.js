@@ -37,7 +37,6 @@ const Sidebar = props => {
             <div>Books</div>
           </div>
         </Link>
-
         <div
           onClick={() => props.selectTab("Characters")}
           className="nav-item"
@@ -45,13 +44,20 @@ const Sidebar = props => {
         >
           <div>Characters</div>
         </div>
-        <div
+        <Link
           onClick={() => props.selectTab("Houses")}
           className="nav-item"
-          style={props.currentTab === "Houses" ? styles : null}
+          style={
+            props.currentTab === "Houses"
+              ? { ...styles, textDecoration: "none" }
+              : { textDecoration: "none" }
+          }
+          to="/houses"
         >
-          <div>Houses</div>
-        </div>
+          <div>
+            <div>Houses</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

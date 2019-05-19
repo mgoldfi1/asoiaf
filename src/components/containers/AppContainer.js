@@ -9,11 +9,7 @@ import {
 import Books from "../Books";
 import { connect } from "react-redux";
 const AppContainer = props => {
-  return (
-    <Router>
-      <div className="home-container" />;
-    </Router>
-  );
+  return <div className="home-container" />;
 };
 
 const mapStateToProps = state => ({
