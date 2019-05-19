@@ -24,6 +24,11 @@
   height: 30%;
 }
 
+#drawer-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
 .navigation-holder {
   display: flex;
   flex-direction: column;

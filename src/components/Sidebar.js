@@ -9,12 +9,13 @@ const Sidebar = props => {
     color: "blue"
   };
 
+  console.log("TOGGLEPROP", props.toggle);
   useEffect(() => {
     props.selectTab(props.currentTab);
   }, []);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={!props.open ? { display: "none" } : null}>
       <div className="image-container">
         <img
           src={banner}
