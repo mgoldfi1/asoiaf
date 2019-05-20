@@ -76,3 +76,43 @@ export const sortHouseRegionDesc = (a, b) => {
   }
   return 0;
 };
+
+export const sortCultureAsc = (a, b) => {
+  if (a.culture > b.culture) {
+    return -1;
+  }
+  if (a.culture < b.culture) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortCultureDesc = (a, b) => {
+  if (a.culture < b.culture) {
+    return -1;
+  }
+  if (a.culture > b.culture) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortGenderAsc = (a, b) => {
+  if (a.gender > b.gender) {
+    return -1;
+  }
+  if (a.gender < b.gender) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortGenderDesc = (a, b) => {
+  if (a.gender < b.gender) {
+    return -1;
+  }
+  if (a.gender > b.gender) {
+    return 1;
+  }
+  return 0;
+};

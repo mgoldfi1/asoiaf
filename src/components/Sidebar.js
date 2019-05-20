@@ -37,13 +37,7 @@ const Sidebar = props => {
             <div>Books</div>
           </div>
         </Link>
-        <div
-          onClick={() => props.selectTab("Characters")}
-          className="nav-item"
-          style={props.currentTab === "Characters" ? styles : null}
-        >
-          <div>Characters</div>
-        </div>
+
         <Link
           onClick={() => props.selectTab("Houses")}
           className="nav-item"

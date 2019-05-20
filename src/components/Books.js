@@ -15,6 +15,7 @@ import arrowdown from "../assets/images/arrow-down.svg";
 const Books = props => {
   const [books, setBooks] = useState(props.books);
   useEffect(() => {
+    document.title = "ASOIAF| Books";
     if (!props.books.length) {
       props.setLoading();
     }

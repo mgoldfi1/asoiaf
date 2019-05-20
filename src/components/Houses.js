@@ -11,6 +11,8 @@ import { sortHouses } from "../actions/index";
 import { changePage } from "../actions/index";
 
 const Houses = props => {
+  document.title = "ASOIAF| Houses";
+
   useEffect(() => {
     props.fetchHouses(props.page);
   }, [props.page]);
