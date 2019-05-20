@@ -1,0 +1,17 @@
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.house-card {
+  width: 350px;
+  height: 400px;
+  margin: 25px;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 1px 0px 4px #888888;
+  border: 1px solid black;
+}
+
+.house-card p {
+  margin-left: 15px;
+}

@@ -38,3 +38,43 @@ export const compareYearsDesc = (a, b) => {
   }
   return 0;
 };
+
+export const sortHouseNameAsc = (a, b) => {
+  if (a.name > b.name) {
+    return -1;
+  }
+  if (a.name < b.name) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortHouseNameDesc = (a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortHouseRegionAsc = (a, b) => {
+  if (a.region > b.region) {
+    return -1;
+  }
+  if (a.region < b.region) {
+    return 1;
+  }
+  return 0;
+};
+
+export const sortHouseRegionDesc = (a, b) => {
+  if (a.region < b.region) {
+    return -1;
+  }
+  if (a.region > b.region) {
+    return 1;
+  }
+  return 0;
+};
