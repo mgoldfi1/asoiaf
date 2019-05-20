@@ -25,7 +25,7 @@ const App = () => {
           title="drawer"
         />
         <Sidebar open={toggle} />
-        <Route exact path="/" component={AppContainer} />
+        <Route exact path="/" component={Books} />
         <Route exact path="/books" component={Books} />
         <Route exact path="/houses" component={Houses} />
         <Route path="/houses/:name/swornmembers" component={MembersProfile} />
