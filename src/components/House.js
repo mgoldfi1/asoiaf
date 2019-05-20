@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-const House = ({ data }) => {
+import { cacheHouseData } from "../actions/index";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+const House = props => {
   const [lord, setLord] = useState({});
+
   const fetchLord = async () => {
     try {
-      if (data.currentLord) {
-        const res = await fetch(data.currentLord);
+      if (props.data.currentLord) {
+        const res = await fetch(props.data.currentLord);
         const result = await res.json();
         console.log(result);
         if (result) {
@@ -22,24 +25,38 @@ const House = ({ data }) => {
 
   return (
     <div class="house-card">
-      <h2 style={{ textAlign: "center" }}>{data.name}</h2>
+      <h2 style={{ textAlign: "center" }}>{props.data.name}</h2>
       <p>
-        <b>Coat of Arms</b>: {data.coatOfArms}
+        <b>Coat of Arms</b>: {props.data.coatOfArms}
       </p>
       <p>
-        <b>Region</b>: {data.region}
+        <b>Region</b>: {props.data.region}
       </p>
       <p>
-        <b>Words</b>: {data.words}
+        <b>Words</b>: {props.data.words}
       </p>
       <p>
-        <b>Founded</b>: {data.founded}
+        <b>Founded</b>: {props.data.founded}
       </p>
       <p>
-        <b>Current Lord</b>: {lord.name}
+        <b>Current Lord</b>:
+        <Link
+          onClick={() =>
+            props.cacheHouseData({
+              lord: lord,
+              members: props.data.swornMembers
+            })
+          }
+          to={"/lords/" + lord.name}
+        >
+          {lord.name}
+        </Link>
       </p>
     </div>
   );
 };
 
-export default House;
+export default connect(
+  null,
+  { cacheHouseData }
+)(House);

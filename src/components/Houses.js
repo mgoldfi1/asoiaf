@@ -12,7 +12,6 @@ import { changePage } from "../actions/index";
 
 const Houses = props => {
   useEffect(() => {
-    console.log("hitttty");
     props.fetchHouses(props.page);
   }, [props.page]);
 

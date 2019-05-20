@@ -15,3 +15,18 @@
 .house-card p {
   margin-left: 15px;
 }
+
+.lord-details-container {
+  width: 100%;
+}
+
+.inner-lord-container {
+  margin: 25%;
+  box-shadow: 1px 0px 4px #888888;
+  overflow: auto;
+}
+
+.lord-text-holder p {
+  margin-left: 8px;
+  margin-bottom: 8px;
+}

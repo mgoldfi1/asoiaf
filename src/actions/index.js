@@ -58,3 +58,9 @@ export const changePage = page => {
     dispatch({ type: "CHANGE_PAGE", page: page });
   };
 };
+
+export const cacheHouseData = data => {
+  return dispatch => {
+    dispatch({ type: "CACHE_HOUSE_DATA", payload: data });
+  };
+};

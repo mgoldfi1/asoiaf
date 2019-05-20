@@ -4,7 +4,7 @@ import { sortHouseRegionAsc } from "../utils/index";
 import { sortHouseRegionDesc } from "../utils/index";
 
 const houseReducer = (
-  state = { houses: [], loading: false, page: 1 },
+  state = { houses: [], loading: false, page: 1, houseData: {} },
   action
 ) => {
   switch (action.type) {
@@ -15,8 +15,14 @@ const houseReducer = (
       console.log("fetched");
       return { ...state, houses: action.payload, loading: false };
     case "CHANGE_PAGE":
-        console.log(action)
-        return {...state, page: action.page}
+      console.log(state);
+      return {
+        ...state,
+        page: action.page
+      };
+    case "CACHE_HOUSE_DATA":
+      console.log("caching");
+      return { ...state, houseData: action.payload };
     case "SORT_HOUSES":
       console.log("HIT REDUCER");
       let sortedState;
