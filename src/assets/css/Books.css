@@ -11,6 +11,10 @@
   margin: 25px;
 }
 
+.book img {
+  height: 375px;
+  width: 250px;
+}
 .loader {
   position: absolute;
   top: 50vh;

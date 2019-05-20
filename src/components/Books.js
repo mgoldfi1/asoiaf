@@ -26,8 +26,8 @@ const Books = props => {
   }, [props.books]);
 
   const renderBooks = () => {
-    return books.map(book => {
-      return <Book data={book} />;
+    return books.map((book, index) => {
+      return <Book index={index + 1} data={book} />;
     });
   };
 
