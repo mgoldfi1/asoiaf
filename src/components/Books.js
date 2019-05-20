@@ -21,12 +21,10 @@ const Books = props => {
   }, []);
 
   useEffect(() => {
-    console.log("PROPS", props.books);
     setBooks(props.books);
   }, [props.books]);
 
   const renderBooks = () => {
-    console.log(props.books);
     return books.map(book => {
       return <Book data={book} />;
     });

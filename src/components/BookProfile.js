@@ -4,7 +4,6 @@ const BookProfile = props => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    console.log(props);
     const title = props.match.params.name;
     setData(props.books.find(book => book.name === title));
   }, []);

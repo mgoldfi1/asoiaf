@@ -19,7 +19,6 @@ const bookReducer = (state = { books: [], loading: false }, action) => {
         } else {
           sortedState = books.sort(compareYearsDesc);
         }
-        console.log(state);
       } else {
         let books = [...state.books];
         if (action.dir === "up") {
@@ -27,7 +26,6 @@ const bookReducer = (state = { books: [], loading: false }, action) => {
         } else {
           sortedState = books.sort(comparePagesDesc);
         }
-        console.log("SORTED", sortedState);
       }
       return { ...state, books: sortedState };
     default:

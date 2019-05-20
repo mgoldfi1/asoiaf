@@ -15,7 +15,6 @@ const App = () => {
   const toggleDrawer = () => {
     setToggle(!toggle);
   };
-  console.log(toggle);
   return (
     <div className="container">
       <Router>

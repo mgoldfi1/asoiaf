@@ -10,7 +10,6 @@ const House = props => {
       if (props.data.currentLord) {
         const res = await fetch(props.data.currentLord);
         const result = await res.json();
-        console.log(result);
         if (result) {
           setLord(result);
         }

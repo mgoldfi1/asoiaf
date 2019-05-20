@@ -1,7 +1,6 @@
 import { ninvoke } from "q";
 
 export const selectTab = tab => {
-  console.log(tab);
   return dispatch => {
     dispatch({ type: "SELECT_TAB", tab: tab });
   };
@@ -14,7 +13,6 @@ export const setLoading = () => {
       const res = await fetch("https://www.anapioficeandfire.com/api/books");
       const result = await res.json();
       dispatch({ type: "FETCHED_BOOKS", payload: [...result] });
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +21,6 @@ export const setLoading = () => {
 
 export const sortBooks = (sort, dir) => {
   const query = sort === "release" ? "released" : "numberOfPages";
-  console.log(dir);
   return dispatch => {
     dispatch({ type: "SORT_BOOKS", sort: query, dir: dir });
   };
@@ -38,7 +35,6 @@ export const fetchHouses = page => {
       );
       const result = await res.json();
       dispatch({ type: "FETCHED_HOUSES", payload: [...result] });
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -46,14 +42,12 @@ export const fetchHouses = page => {
 };
 
 export const sortHouses = (sort, dir) => {
-  console.log(dir);
   return dispatch => {
     dispatch({ type: "SORT_HOUSES", sort: sort, dir: dir });
   };
 };
 
 export const changePage = page => {
-  console.log(page);
   return dispatch => {
     dispatch({ type: "CHANGE_PAGE", page: page });
   };
@@ -77,7 +71,6 @@ export const fetchMembers = links => {
             memberData.push(result);
           });
       });
-      console.log("BIGDATA", memberData);
       dispatch({ type: "FETCHED_MEMBERS", payload: memberData });
     } catch (error) {
       console.log(error);

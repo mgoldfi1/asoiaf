@@ -9,7 +9,6 @@ const Sidebar = props => {
     color: "blue"
   };
 
-  console.log("TOGGLEPROP", props.toggle);
   useEffect(() => {
     props.selectTab(props.currentTab);
   }, []);

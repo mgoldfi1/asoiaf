@@ -30,3 +30,24 @@
   margin-left: 8px;
   margin-bottom: 8px;
 }
+
+.member-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: auto;
+}
+
+.member-card {
+  width: 350px;
+  height: 400px;
+  margin: 25px;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 1px 0px 4px #888888;
+  border: 1px solid black;
+  padding: 25px;
+  padding-bottom: 0px;
+  padding-top: 0;
+}

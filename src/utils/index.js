@@ -1,5 +1,4 @@
 export const comparePagesAsc = (a, b, c) => {
-  console.log("FUNCTION RECEIVED", c);
   if (a.numberOfPages > b.numberOfPages) {
     return -1;
   }
@@ -10,7 +9,6 @@ export const comparePagesAsc = (a, b, c) => {
 };
 
 export const comparePagesDesc = (a, b, c) => {
-  console.log("FUNCTION RECEIVED", c);
   if (a.numberOfPages < b.numberOfPages) {
     return -1;
   }

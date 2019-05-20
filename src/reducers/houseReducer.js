@@ -4,33 +4,35 @@ import { sortHouseRegionAsc } from "../utils/index";
 import { sortHouseRegionDesc } from "../utils/index";
 
 const houseReducer = (
-  state = { houses: [], loading: false, page: 1, houseData: {} },
+  state = {
+    houses: [],
+    loading: false,
+    page: 1,
+    houseData: {},
+    swornMembers: []
+  },
   action
 ) => {
   switch (action.type) {
     case "FETCHING_HOUSES":
-      console.log("HIT");
       return { ...state, loading: true };
     case "FETCHED_HOUSES":
-      console.log("fetched");
       return { ...state, houses: action.payload, loading: false };
     case "FETCHING_MEMBERS":
       return { ...state, loading: true };
     case "FETCHED_MEMBERS":
-      console.log(state.swornMembers);
+      console.log("THIS:", action.payload);
       return {
         ...state,
-        houseData: { ...state.houseData, swornMembers: action.payload },
+        swornMembers: action.payload,
         loading: false
       };
     case "CHANGE_PAGE":
-      console.log(state);
       return {
         ...state,
         page: action.page
       };
     case "CACHE_HOUSE_DATA":
-      console.log("caching");
       return { ...state, houseData: action.payload };
     case "SORT_HOUSES":
       console.log("HIT REDUCER");
