@@ -84,35 +84,38 @@ class MembersProfile extends Component {
         <h1 style={{ width: "100%", textAlign: "center" }}>
           Sworn Members Of {this.props.match.params.name}
         </h1>
-        <h4 style={{ marginLeft: "25px", width: "100%" }}>
-          Sort By:
-          <Button style={{ marginLeft: "50px" }} variant="contained">
-            Culture
-          </Button>
-          <img
-            src={arrowup}
-            onClick={() => this.sortCulture("up")}
-            title="uparrow"
-          />
-          <img
-            src={arrowdown}
-            onClick={() => this.sortCulture("down")}
-            title="downarrow"
-          />
-          <Button style={{ marginLeft: "30px" }} variant="contained">
-            Gender
-          </Button>
-          <img
-            src={arrowup}
-            onClick={() => this.sortGender("up")}
-            title="uparrow"
-          />
-          <img
-            onClick={() => this.sortGender("down")}
-            src={arrowdown}
-            title="downarrow"
-          />
-        </h4>
+        {this.state.data.length ? (
+          <h4 style={{ marginLeft: "25px", width: "100%" }}>
+            Sort By:
+            <Button style={{ marginLeft: "50px" }} variant="contained">
+              Culture
+            </Button>
+            <img
+              src={arrowup}
+              onClick={() => this.sortCulture("up")}
+              title="uparrow"
+            />
+            <img
+              src={arrowdown}
+              onClick={() => this.sortCulture("down")}
+              title="downarrow"
+            />
+            <Button style={{ marginLeft: "30px" }} variant="contained">
+              Gender
+            </Button>
+            <img
+              src={arrowup}
+              onClick={() => this.sortGender("up")}
+              title="uparrow"
+            />
+            <img
+              onClick={() => this.sortGender("down")}
+              src={arrowdown}
+              title="downarrow"
+            />
+          </h4>
+        ) : null}
+
         {this.renderHouseMembers()}
       </div>
     );
