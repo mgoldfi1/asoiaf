@@ -51,3 +51,10 @@ export const sortHouses = (sort, dir) => {
     dispatch({ type: "SORT_HOUSES", sort: sort, dir: dir });
   };
 };
+
+export const changePage = page => {
+  console.log(page);
+  return dispatch => {
+    dispatch({ type: "CHANGE_PAGE", page: page });
+  };
+};

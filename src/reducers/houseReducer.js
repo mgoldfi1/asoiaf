@@ -14,6 +14,9 @@ const houseReducer = (
     case "FETCHED_HOUSES":
       console.log("fetched");
       return { ...state, houses: action.payload, loading: false };
+    case "CHANGE_PAGE":
+        console.log(action)
+        return {...state, page: action.page}
     case "SORT_HOUSES":
       console.log("HIT REDUCER");
       let sortedState;

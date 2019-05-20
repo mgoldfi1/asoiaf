@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const House = ({ data }) => {
-  console.log("DATADATA", data);
-
   const [lord, setLord] = useState({});
   const fetchLord = async () => {
     try {

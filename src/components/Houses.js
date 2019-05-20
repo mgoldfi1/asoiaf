@@ -8,12 +8,13 @@ import Button from "@material-ui/core/Button";
 import arrowup from "../assets/images/arrow-up.svg";
 import arrowdown from "../assets/images/arrow-down.svg";
 import { sortHouses } from "../actions/index";
+import { changePage } from "../actions/index";
+
 const Houses = props => {
   useEffect(() => {
-    if (!props.houses.length) {
-      props.fetchHouses(1);
-    }
-  }, []);
+    console.log("hitttty");
+    props.fetchHouses(props.page);
+  }, [props.page]);
 
   const renderHouses = () => {
     return props.houses.map(house => {
@@ -33,7 +34,25 @@ const Houses = props => {
             The Houses of Westeros
           </h1>
           <h3 style={{ marginLeft: "25px" }}>
-            Showing results 1-{props.houses.length} from page {props.page}:
+            Showing results 1-{props.houses.length} from page {props.page}:{" "}
+            <Button
+              style={{ marginLeft: "50px" }}
+              onClick={() =>
+                props.page > 1 ? props.changePage(props.page - 1) : null
+              }
+              variant="contained"
+            >
+              Prev
+            </Button>{" "}
+            <Button
+              style={{ marginLeft: "50px" }}
+              onClick={() =>
+                props.page < 45 ? props.changePage(props.page + 1) : null
+              }
+              variant="contained"
+            >
+              Next
+            </Button>
           </h3>
           <h4 style={{ marginLeft: "25px" }}>
             Sort By:{" "}
@@ -79,5 +98,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchHouses, sortHouses }
+  { fetchHouses, sortHouses, changePage }
 )(Houses);
