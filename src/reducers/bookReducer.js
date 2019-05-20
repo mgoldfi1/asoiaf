@@ -8,7 +8,6 @@ const bookReducer = (state = { books: [], loading: false }, action) => {
     case "FETCHING_BOOKS":
       return { ...state, loading: true };
     case "FETCHED_BOOKS":
-      console.log("BOTH HIT");
       return { ...state, books: action.payload, loading: false };
     case "SORT_BOOKS":
       let sortedState;

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "../assets/css/Houses.css";
 
 const LordProfile = ({ lord }) => {
-  console.log(lord);
   return (
     <div className="lord-details-container">
       <div className="inner-lord-container">

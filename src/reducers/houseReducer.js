@@ -21,7 +21,6 @@ const houseReducer = (
     case "FETCHING_MEMBERS":
       return { ...state, loading: true };
     case "FETCHED_MEMBERS":
-      console.log("THIS:", action.payload);
       return {
         ...state,
         swornMembers: action.payload,
@@ -35,7 +34,6 @@ const houseReducer = (
     case "CACHE_HOUSE_DATA":
       return { ...state, houseData: action.payload };
     case "SORT_HOUSES":
-      console.log("HIT REDUCER");
       let sortedState;
       if (action.sort === "name") {
         let houses = [...state.houses];
@@ -44,7 +42,6 @@ const houseReducer = (
         } else {
           sortedState = houses.sort(sortHouseNameDesc);
         }
-        console.log(state);
       } else {
         let houses = [...state.houses];
         if (action.dir === "up") {
@@ -52,7 +49,6 @@ const houseReducer = (
         } else {
           sortedState = houses.sort(sortHouseRegionDesc);
         }
-        console.log("SORTED", sortedState);
       }
       return { ...state, houses: sortedState };
     default:

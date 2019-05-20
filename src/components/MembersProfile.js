@@ -46,7 +46,6 @@ class MembersProfile extends Component {
   };
   renderHouseMembers = () => {
     return this.state.data.map(member => {
-      console.log(member);
       return (
         <div key={member.name} className="member-card">
           <h1 style={{ width: "100%", textAlign: "center" }}>{member.name}</h1>
@@ -78,7 +77,6 @@ class MembersProfile extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="member-container">
         <h1 style={{ width: "100%", textAlign: "center" }}>

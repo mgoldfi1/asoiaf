@@ -22,7 +22,6 @@ const Houses = props => {
       return <House data={house} key={house.name} />;
     });
   };
-  console.log(props.houses);
   return (
     <div style={{ overflow: "auto", width: "100%" }}>
       {props.loading ? (
