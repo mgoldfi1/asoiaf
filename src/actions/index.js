@@ -64,3 +64,23 @@ export const cacheHouseData = data => {
     dispatch({ type: "CACHE_HOUSE_DATA", payload: data });
   };
 };
+
+export const fetchMembers = links => {
+  return async dispatch => {
+    const memberData = [];
+    try {
+      dispatch({ type: "FETCHING_MEMBERS" });
+      links.forEach(link => {
+        fetch(link)
+          .then(res => res.json())
+          .then(result => {
+            memberData.push(result);
+          });
+      });
+      console.log("BIGDATA", memberData);
+      dispatch({ type: "FETCHED_MEMBERS", payload: memberData });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

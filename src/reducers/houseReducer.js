@@ -14,6 +14,15 @@ const houseReducer = (
     case "FETCHED_HOUSES":
       console.log("fetched");
       return { ...state, houses: action.payload, loading: false };
+    case "FETCHING_MEMBERS":
+      return { ...state, loading: true };
+    case "FETCHED_MEMBERS":
+      console.log(state.swornMembers);
+      return {
+        ...state,
+        houseData: { ...state.houseData, swornMembers: action.payload },
+        loading: false
+      };
     case "CHANGE_PAGE":
       console.log(state);
       return {

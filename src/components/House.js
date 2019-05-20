@@ -24,7 +24,7 @@ const House = props => {
   }, []);
 
   return (
-    <div class="house-card">
+    <div className="house-card">
       <h2 style={{ textAlign: "center" }}>{props.data.name}</h2>
       <p>
         <b>Coat of Arms</b>: {props.data.coatOfArms}
@@ -37,6 +37,19 @@ const House = props => {
       </p>
       <p>
         <b>Founded</b>: {props.data.founded}
+      </p>
+      <p>
+        <Link
+          onClick={() =>
+            props.cacheHouseData({
+              lord: lord,
+              members: props.data.swornMembers
+            })
+          }
+          to={"/houses/" + props.data.name + "/swornmembers"}
+        >
+          <b>Sworn Members</b>
+        </Link>
       </p>
       <p>
         <b>Current Lord</b>:

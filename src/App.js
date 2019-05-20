@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Books from "./components/Books";
 import BookProfile from "./components/BookProfile";
 import LordProfile from "./components/LordProfile";
-
+import MembersProfile from "./components/MembersProfile";
 import Houses from "./components/Houses";
 import drawer from "./assets/images/align-justify.svg";
 const App = () => {
@@ -29,6 +29,7 @@ const App = () => {
         <Route exact path="/" component={AppContainer} />
         <Route exact path="/books" component={Books} />
         <Route exact path="/houses" component={Houses} />
+        <Route path="/houses/:name/swornmembers" component={MembersProfile} />
         <Route path="/books/:name" component={BookProfile} />
         <Route path="/lords/:name" component={LordProfile} />
       </Router>
