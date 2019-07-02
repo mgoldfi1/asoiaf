@@ -57,6 +57,30 @@ const columns = [
   {
     Header: "Born",
     accessor: "born"
+  },
+  {
+    Header: "Books",
+    id: "books",
+    accessor: el => el.books.map(x => <span>{x.split(/(\d+)/g)[1]}</span>),
+    filterMethod: (filter, row) => {
+      const arr = row.books.map(el => el.props.children);
+      if (filter.value !== "Any") {
+        return arr.find(el => el === filter.value) && true;
+      } else {
+        return true;
+      }
+    },
+    Filter: ({ filter, onChange }) => (
+      <select
+        onChange={event => onChange(event.target.value)}
+        style={{ width: "100%" }}
+        value={filter ? filter.value : "Any"}
+      >
+        {["Any", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => {
+          return <option value={num}>{num}</option>;
+        })}
+      </select>
+    )
   }
 ];
 
