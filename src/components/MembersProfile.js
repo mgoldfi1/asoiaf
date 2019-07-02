@@ -11,6 +11,54 @@ import { sortCultureAsc } from "../utils/index";
 import { sortCultureDesc } from "../utils/index";
 import { sortGenderAsc } from "../utils/index";
 import { sortGenderDesc } from "../utils/index";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+
+const columns = [
+  {
+    Header: "Name",
+    accessor: "name",
+    filterMethod: (filter, row) =>
+      row[filter.id].toLowerCase().includes(filter.value) && true
+  },
+  {
+    Header: "Culture",
+    accessor: "culture",
+    filterMethod: (filter, row) => {
+      return (
+        row[filter.id].toLowerCase().includes(filter.value.toLowerCase()) &&
+        true
+      );
+    }
+  },
+  {
+    Header: "Gender",
+    accessor: "gender",
+    filterMethod: (filter, row) => {
+      if (filter.value.toLowerCase().includes("f")) {
+        return row[filter.id] === "Female" && true;
+      } else if (filter.value[0].toLowerCase() === "m") {
+        return row[filter.id] === "Male" && true;
+      }
+    }
+  },
+  {
+    Header: "Played By",
+    id: "playedBy",
+    accessor: "playedBy",
+    Cell: ({ row }) => <div>{row.playedBy.join(" , ")}</div>
+  },
+  {
+    Header: "Aliases",
+    id: "aliases",
+    accessor: "aliases",
+    Cell: ({ row }) => <div>{row.aliases.join(" , ")}</div>
+  },
+  {
+    Header: "Born",
+    accessor: "born"
+  }
+];
 
 class MembersProfile extends Component {
   state = {
@@ -77,44 +125,24 @@ class MembersProfile extends Component {
   };
 
   render() {
+    console.log(this.state.data);
     return (
       <div className="member-container">
         <h1 style={{ width: "100%", textAlign: "center" }}>
           Sworn Members Of {this.props.match.params.name}
         </h1>
-        {this.state.data.length ? (
-          <h4 style={{ marginLeft: "25px", width: "100%" }}>
-            Sort By:
-            <Button style={{ marginLeft: "50px" }} variant="contained">
-              Culture
-            </Button>
-            <img
-              src={arrowup}
-              onClick={() => this.sortCulture("up")}
-              title="uparrow"
-            />
-            <img
-              src={arrowdown}
-              onClick={() => this.sortCulture("down")}
-              title="downarrow"
-            />
-            <Button style={{ marginLeft: "30px" }} variant="contained">
-              Gender
-            </Button>
-            <img
-              src={arrowup}
-              onClick={() => this.sortGender("up")}
-              title="uparrow"
-            />
-            <img
-              onClick={() => this.sortGender("down")}
-              src={arrowdown}
-              title="downarrow"
-            />
-          </h4>
-        ) : null}
 
-        {this.renderHouseMembers()}
+        <div className="member-table">
+          <ReactTable
+            filterable
+            defaultFilterMethod={(filter, row) =>
+              String(row[filter.id]) === filter.value
+            }
+            defaultPageSize={10}
+            data={this.state.data}
+            columns={columns}
+          />
+        </div>
       </div>
     );
   }

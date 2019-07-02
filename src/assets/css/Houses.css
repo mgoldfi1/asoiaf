@@ -17,6 +17,10 @@
   margin-left: 15px;
 }
 
+.member-table {
+  margin-top: 250px;
+}
+
 .lord-details-container {
   width: 100%;
 }
@@ -33,9 +37,7 @@
 }
 
 .member-container {
-  display: flex;
   width: 100%;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   overflow: auto;
